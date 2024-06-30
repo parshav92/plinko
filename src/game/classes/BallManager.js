@@ -1,7 +1,7 @@
 import { Ball } from "./Ball";
 import { pad, unpad } from "../padding";
 import { createObstacles, createSinks } from "../objects";
-import { ballRadius } from "../constants";
+import { ballRadius, obstacleRadius, WIDTH, sinkWidth } from "../constants";
 
 export class BallManager {
   constructor(canvasRef, onFinish) {
@@ -15,7 +15,7 @@ export class BallManager {
 
   addBall(point) {
     const newBall = new Ball(
-      point || ad(WIDTH / 2 + 13),
+      point || pad(WIDTH / 2 + 13),
       pad(50),
       ballRadius,
       "black",
