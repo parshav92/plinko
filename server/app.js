@@ -1,8 +1,8 @@
-import express from "express";
-import cors from "cors";
-import { outcomes } from "./outcomes";
-const app = express();
+const express = require("express");
+const cors = require("cors");
+const outcomes = require("./outcomes.js");
 
+const app = express();
 app.use(cors());
 
 const total_drops = 16;
@@ -30,6 +30,7 @@ const MULTIPLIERS = {
 app.post("/api/game", (req, res) => {
   let outcome = 0;
   let pattern = [];
+
   for (let i = 0; i < total_drops; i++) {
     if (Math.random() > 0.5) {
       pattern.push("R");
@@ -37,16 +38,17 @@ app.post("/api/game", (req, res) => {
     } else {
       pattern.push("L");
     }
-    const multiplier = MULTIPLIERS[outcome];
-    const possiblieOutcomes = outcomes[outcome];
-
-    res.send({
-      point:
-        possiblieOutcomes[Math.floor(Math.random() * possiblieOutcomes.length)],
-      multiplier,
-      pattern,
-    });
   }
+
+  const multiplier = MULTIPLIERS[outcome];
+  const possibleOutcomes = outcomes[outcome];
+
+  res.send({
+    point:
+      possibleOutcomes[Math.floor(Math.random() * possibleOutcomes.length)],
+    multiplier,
+    pattern,
+  });
 });
 
 app.listen(3000, () => {

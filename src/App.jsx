@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Game from "./components/Game";
+import { Game } from "./components/Game";
+import { Simulate } from "./components/Simulate";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/game" element={<Game />} />
-        {/* <Route path="/simulation" element={<Simulation />} /> */}
+        <Route path="/simulation" element={<Simulate />} />
         {/* <Route path="*" element={<$)$ />} /> */}
       </Routes>
     </BrowserRouter>

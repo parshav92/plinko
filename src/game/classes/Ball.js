@@ -1,6 +1,5 @@
 import { gravity, verticalFriction, horizontalFriction } from "../constants";
 import { pad, unpad } from "../padding";
-import { Obstacle, Sink } from "./Obstacle";
 
 export class Ball {
   constructor(x, y, radius, color, ctx, obstacles, sinks, onFinish) {
